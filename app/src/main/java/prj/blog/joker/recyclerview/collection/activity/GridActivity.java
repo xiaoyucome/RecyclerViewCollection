@@ -1,19 +1,26 @@
-package prj.blog.joker.recyclerview.collection;
+package prj.blog.joker.recyclerview.collection.activity;
 
 import android.databinding.DataBindingUtil;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import prj.blog.joker.recyclerview.collection.R;
+import prj.blog.joker.recyclerview.collection.RecyclerAdapter;
+import prj.blog.joker.recyclerview.collection.ViewModel.ItemBean;
 import prj.blog.joker.recyclerview.collection.databinding.ActivityRecyclerviewBinding;
 
-public class RecyclerViewActivity extends AppCompatActivity {
+/**
+ * Created by XiaoYuLiu on 17/3/10.
+ */
+
+public class GridActivity extends AppCompatActivity {
 
     private List<ItemBean> mDatas;
     private ActivityRecyclerviewBinding mBinding;
@@ -26,11 +33,17 @@ public class RecyclerViewActivity extends AppCompatActivity {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_recyclerview);
         RecyclerAdapter adapter = new RecyclerAdapter(this, mDatas);
         mBinding.recyclerview.setAdapter(adapter);
-        mBinding.recyclerview.setLayoutManager(new LinearLayoutManager(this));
+        mBinding.recyclerview.setLayoutManager(new GridLayoutManager(this,4));
+
+        /**
+         * 布局的方向和4的方向是垂直关系
+         */
+//        mBinding.recyclerview.setLayoutManager(new GridLayoutManager(this,4, LinearLayoutManager.VERTICAL,false));
         mBinding.recyclerview.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                outRect.set(0,8,0,0);
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+                                       RecyclerView.State state) {
+                outRect.set(8, 0, 8, 8);
             }
         });
     }

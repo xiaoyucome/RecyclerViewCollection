@@ -1,4 +1,4 @@
-package prj.blog.joker.recyclerview.collection;
+package prj.blog.joker.recyclerview.collection.ViewModel;
 
 /**
  * Created by XiaoYuLiu on 17/3/9.

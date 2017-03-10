@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="activityModel"
+            type="prj.blog.joker.recyclerview.collection.ViewModel.MainActivityVM"/>
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="@{activityModel.clickLinear}"
+            android:text="线性"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:onClick="@{activityModel.clickGrid}"
+            android:text="网格"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:onClick="@{activityModel.clickWaterFall}"
+            android:text="瀑布"/>
+
+    </LinearLayout>
+
+</layout>
+

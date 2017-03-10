@@ -6,7 +6,7 @@
 
         <variable
             name="itemBean"
-            type="prj.blog.joker.recyclerview.collection.ItemBean"/>
+            type="prj.blog.joker.recyclerview.collection.ViewModel.ItemBean"/>
 
     </data>
 

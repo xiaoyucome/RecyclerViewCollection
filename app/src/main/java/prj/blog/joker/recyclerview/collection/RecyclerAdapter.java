@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import prj.blog.joker.recyclerview.collection.ViewModel.ItemBean;
+
 /**
  * Created by XiaoYuLiu on 17/3/9.
  */
