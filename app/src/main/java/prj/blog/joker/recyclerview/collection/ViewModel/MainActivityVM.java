@@ -6,7 +6,7 @@ import android.view.View;
 
 import prj.blog.joker.recyclerview.collection.activity.GridActivity;
 import prj.blog.joker.recyclerview.collection.activity.LinearActivity;
-import prj.blog.joker.recyclerview.collection.activity.WaterFallActivity;
+import prj.blog.joker.recyclerview.collection.activity.StaggeredGridActivity;
 
 /**
  * Created by XiaoYuLiu on 17/3/10.
@@ -26,7 +26,7 @@ public class MainActivityVM {
 
     public void clickWaterFall(View view) {
         Context context = view.getContext();
-        context.startActivity(new Intent(context, WaterFallActivity.class));
+        context.startActivity(new Intent(context, StaggeredGridActivity.class));
     }
 
 }

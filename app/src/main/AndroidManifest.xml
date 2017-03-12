@@ -19,7 +19,7 @@
 
         <activity android:name=".activity.GridActivity"/>
         <activity android:name=".activity.LinearActivity"/>
-        <activity android:name=".activity.WaterFallActivity"/>
+        <activity android:name=".activity.StaggeredGridActivity"/>
 
     </application>
 
