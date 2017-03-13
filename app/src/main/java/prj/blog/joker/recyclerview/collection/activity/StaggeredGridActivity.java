@@ -31,7 +31,7 @@ public class StaggeredGridActivity extends AppCompatActivity{
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_recyclerview);
         RecyclerAdapter adapter = new RecyclerAdapter(this, mDatas);
         mBinding.recyclerview.setAdapter(adapter);
-        mBinding.recyclerview.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
+        mBinding.recyclerview.setLayoutManager(new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL));
 
 //        mBinding.recyclerview.addItemDecoration(new RecyclerView.ItemDecoration() {
 //            @Override

@@ -1,16 +1,14 @@
 package prj.blog.joker.recyclerview.collection.activity;
 
 import android.databinding.DataBindingUtil;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import prj.blog.joker.recyclerview.collection.Decoration.DividerGridItemDecoration;
 import prj.blog.joker.recyclerview.collection.R;
 import prj.blog.joker.recyclerview.collection.RecyclerAdapter;
 import prj.blog.joker.recyclerview.collection.ViewModel.ItemBean;
@@ -41,13 +39,14 @@ public class GridActivity extends AppCompatActivity {
          * 那么传入的如果是GridLayoutManager.HORIZONTAL就代表有多少行
          */
 //        mBinding.recyclerview.setLayoutManager(new GridLayoutManager(this,4, LinearLayoutManager.VERTICAL,false));
-        mBinding.recyclerview.addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
-                                       RecyclerView.State state) {
-                outRect.set(8, 0, 8, 8);
-            }
-        });
+//        mBinding.recyclerview.addItemDecoration(new RecyclerView.ItemDecoration() {
+//            @Override
+//            public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+//                                       RecyclerView.State state) {
+//                outRect.set(8, 0, 8, 8);
+//            }
+//        });
+        mBinding.recyclerview.addItemDecoration(new DividerGridItemDecoration(this));
     }
 
     private void initListData() {
