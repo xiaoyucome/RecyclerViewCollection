@@ -11,7 +11,12 @@ import android.support.annotation.DimenRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-//https://blog.piasy.com/2016/03/26/Insight-Android-RecyclerView-ItemDecoration/
+/**
+ * https://blog.piasy.com/2016/03/26/Insight-Android-RecyclerView-ItemDecoration/
+ * getItemOffsets：可以通过outRect.set()为每个Item设置一定的偏移量，主要用于绘制Decorator   --->   insters值变化   --->   childv view 的padding发生变化
+ * Decoration的ondraw   --->   限制divider的范围，并ondraw上去，onDraw方法先于drawChildren
+ * onDrawOver   在drawChildren之后，一般我们选择复写其中一个即可。是绘制在最上层的，所以它的绘制位置并不受限制
+ */
 public class LinearLayoutColorDivider extends RecyclerView.ItemDecoration {
     private final Drawable mDivider;
     private final int mSize;

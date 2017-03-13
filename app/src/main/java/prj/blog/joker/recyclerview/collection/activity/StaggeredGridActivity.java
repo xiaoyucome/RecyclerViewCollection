@@ -8,7 +8,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import prj.blog.joker.recyclerview.collection.Decoration.VerticalDividerDecoration;
+import prj.blog.joker.recyclerview.collection.Decoration.DividerGridItemDecoration;
 import prj.blog.joker.recyclerview.collection.R;
 import prj.blog.joker.recyclerview.collection.RecyclerAdapter;
 import prj.blog.joker.recyclerview.collection.ViewModel.ItemBean;
@@ -31,7 +31,7 @@ public class StaggeredGridActivity extends AppCompatActivity{
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_recyclerview);
         RecyclerAdapter adapter = new RecyclerAdapter(this, mDatas);
         mBinding.recyclerview.setAdapter(adapter);
-        mBinding.recyclerview.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
+        mBinding.recyclerview.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
 
 //        mBinding.recyclerview.addItemDecoration(new RecyclerView.ItemDecoration() {
 //            @Override
@@ -41,11 +41,11 @@ public class StaggeredGridActivity extends AppCompatActivity{
 //        });
 
 
-//        mBinding.recyclerview.addItemDecoration(new DividerGridItemDecoration(this));
+        mBinding.recyclerview.addItemDecoration(new DividerGridItemDecoration(this));
 
 //        mBinding.recyclerview.addItemDecoration(new LinearLayoutColorDivider(this
 //                ,R.color.red,10,StaggeredGridLayoutManager.VERTICAL));
-        mBinding.recyclerview.addItemDecoration(new VerticalDividerDecoration());
+//        mBinding.recyclerview.addItemDecoration(new VerticalDividerDecoration());
     }
 
     private void initListData() {
