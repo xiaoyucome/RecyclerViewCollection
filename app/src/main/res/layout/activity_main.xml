@@ -34,6 +34,12 @@
             android:onClick="@{activityModel.clickWaterFall}"
             android:text="瀑布"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:onClick="@{activityModel.editClear}"
+            android:text="编辑删除"/>
     </LinearLayout>
 
 </layout>

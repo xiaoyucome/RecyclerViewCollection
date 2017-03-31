@@ -3,6 +3,8 @@ package prj.blog.joker.recyclerview.collection.activity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
@@ -46,6 +48,48 @@ public class StaggeredGridActivity extends AppCompatActivity{
 //        mBinding.recyclerview.addItemDecoration(new LinearLayoutColorDivider(this
 //                ,R.color.red,10,StaggeredGridLayoutManager.VERTICAL));
 //        mBinding.recyclerview.addItemDecoration(new VerticalDividerDecoration());
+
+        mBinding.recyclerview.setItemAnimator(new SimpleItemAnimator() {
+            @Override
+            public boolean animateRemove(RecyclerView.ViewHolder holder) {
+                return false;
+            }
+
+            @Override
+            public boolean animateAdd(RecyclerView.ViewHolder holder) {
+                return false;
+            }
+
+            @Override
+            public boolean animateMove(RecyclerView.ViewHolder holder, int fromX, int fromY, int toX, int toY) {
+                return false;
+            }
+
+            @Override
+            public boolean animateChange(RecyclerView.ViewHolder oldHolder, RecyclerView.ViewHolder newHolder, int fromLeft, int fromTop, int toLeft, int toTop) {
+                return false;
+            }
+
+            @Override
+            public void runPendingAnimations() {
+
+            }
+
+            @Override
+            public void endAnimation(RecyclerView.ViewHolder item) {
+
+            }
+
+            @Override
+            public void endAnimations() {
+
+            }
+
+            @Override
+            public boolean isRunning() {
+                return false;
+            }
+        });
     }
 
     private void initListData() {

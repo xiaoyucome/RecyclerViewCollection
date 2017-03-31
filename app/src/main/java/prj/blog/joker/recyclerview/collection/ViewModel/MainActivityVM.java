@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
+import prj.blog.joker.recyclerview.collection.activity.EditClearActivity;
 import prj.blog.joker.recyclerview.collection.activity.GridActivity;
 import prj.blog.joker.recyclerview.collection.activity.LinearActivity;
 import prj.blog.joker.recyclerview.collection.activity.StaggeredGridActivity;
@@ -29,4 +30,8 @@ public class MainActivityVM {
         context.startActivity(new Intent(context, StaggeredGridActivity.class));
     }
 
+    public void editClear(View view){
+        Context context = view.getContext();
+        context.startActivity(new Intent(context, EditClearActivity.class));
+    }
 }
