@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
+    android:id="@+id/item_rl"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="70dp"
     android:layout_height="40dp"
-    android:background="#44ff0000">
+    android:background="#ffff00">
 
     <TextView
         android:id="@+id/item_tv"
@@ -15,11 +16,13 @@
         android:textStyle="bold"/>
 
     <ImageView
+        android:id="@+id/dif_select_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:contentDescription="@string/app_name"
         android:scaleType="center"
-        android:src="@mipmap/mc_select_normal"/>
+        android:src="@mipmap/mc_select_normal"
+        android:visibility="gone"/>
 
 </RelativeLayout>

@@ -18,14 +18,24 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:onClick="cancel"
-        android:text="取消"/>
+        android:text="取消"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/select_all_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:onClick="selectAll"
-        android:text="全选"/>
+        android:text="全选"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/unselect_all_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:onClick="unSelectAll"
+        android:text="全取消"
+        android:visibility="gone"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
+            android:onClick="delete"
             android:text="删除"
             android:visibility="gone"/>
 
