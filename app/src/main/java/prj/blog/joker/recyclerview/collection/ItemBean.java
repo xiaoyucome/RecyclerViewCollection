@@ -17,7 +17,6 @@ public class ItemBean {
     }
 
     public String getContent() {
-
         return content;
     }
 

@@ -20,10 +20,11 @@ import prj.blog.joker.recyclerview.collection.R;
  * Created by XiaoYuLiu on 17/3/10.
  */
 
-public class EditClearActivity extends Activity implements EditClearAdapter.OnItemClickListener {
+public class EditClearActivity extends Activity implements EditClearAdapter.OnItemClickListener,
+        EditClearAdapter.deleteBtnVisibilityListener {
 
     private List<ItemBean> mDatas;
-    private Button mDeleteBtn, editBtn, cancelBtn, selectAllBtn,unSelectAllBtn;
+    private Button mDeleteBtn, editBtn, cancelBtn, selectAllBtn, unSelectAllBtn;
     private RecyclerView mRecyclerviewEditClear;
     private EditClearAdapter mAdapter;
 
@@ -34,6 +35,15 @@ public class EditClearActivity extends Activity implements EditClearAdapter.OnIt
         initListData();
         initAdapter();
         initViews();
+    }
+
+    @Override
+    public void deleteBtnIsVisible(boolean isShow) {
+        if (isShow) {
+            mDeleteBtn.setVisibility(View.VISIBLE);
+        } else {
+            mDeleteBtn.setVisibility(View.GONE);
+        }
     }
 
     private void initViews() {
@@ -48,13 +58,14 @@ public class EditClearActivity extends Activity implements EditClearAdapter.OnIt
     private void initAdapter() {
         mAdapter = new EditClearAdapter(this, mDatas);
         mAdapter.setOnItemClickListener(this);
+        mAdapter.setDeleteBtnVisibilityListener(this);
         RecyclerView recyclerviewEditClear = (RecyclerView) findViewById(R.id.recyclerview_edit_clear);
         recyclerviewEditClear.setAdapter(mAdapter);
         recyclerviewEditClear.setLayoutManager(new GridLayoutManager(this, 4));
         recyclerviewEditClear.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
-                                       RecyclerView.State state) {
+                    RecyclerView.State state) {
                 outRect.set(8, 8, 0, 0);
             }
         });
@@ -70,50 +81,50 @@ public class EditClearActivity extends Activity implements EditClearAdapter.OnIt
         }
     }
 
+    // 编辑
     public void edit(View view) {
         editBtn.setVisibility(View.GONE);
         cancelBtn.setVisibility(View.VISIBLE);
         selectAllBtn.setVisibility(View.VISIBLE);
 
-        mAdapter.setType(1);
-        mAdapter.notifyDataSetChanged();
-
+        mAdapter.setSelectedMode(true);
     }
 
+    // 取消
     public void cancel(View view) {
         editBtn.setVisibility(View.VISIBLE);
         cancelBtn.setVisibility(View.GONE);
         selectAllBtn.setVisibility(View.GONE);
         unSelectAllBtn.setVisibility(View.GONE);
+        mDeleteBtn.setVisibility(View.GONE);
 
-        mAdapter.setType(2);
-        mAdapter.notifyDataSetChanged();
+        mAdapter.setSelectedMode(false);
         mAdapter.reset();
-
     }
 
+    // 全选
     public void selectAll(View view) {
         editBtn.setVisibility(View.GONE);
         cancelBtn.setVisibility(View.VISIBLE);
         selectAllBtn.setVisibility(View.VISIBLE);
         selectAllBtn.setVisibility(View.GONE);
         unSelectAllBtn.setVisibility(View.VISIBLE);
+        mDeleteBtn.setVisibility(View.VISIBLE);
 
-        mAdapter.setType(3);
-        mAdapter.notifyDataSetChanged();
+        mAdapter.setSelectAll();
     }
 
+    // 取消全选
     public void unSelectAll(View view) {
         unSelectAllBtn.setVisibility(View.GONE);
         selectAllBtn.setVisibility(View.VISIBLE);
+        mDeleteBtn.setVisibility(View.GONE);
 
-        mAdapter.setType(4);
-        mAdapter.notifyDataSetChanged();
+        mAdapter.setUnSelectAll();
     }
 
     public void delete(View view) {
-        mAdapter.setType(5);
-        mAdapter.notifyDataSetChanged();
+        mAdapter.deleteBean();
     }
 
     @Override
